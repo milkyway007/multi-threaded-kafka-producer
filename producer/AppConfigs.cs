@@ -1,6 +1,6 @@
 ﻿namespace producer
 {
-    internal class AppConfig
+    internal class AppConfigs
     {
         public const string APPLICATION_ID = "multi-threaded-producer";
         public const string TOPIC_NAME = "nse-eod-topic";
