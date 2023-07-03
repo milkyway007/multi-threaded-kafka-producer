@@ -32,7 +32,7 @@ namespace producer
                 throw new InvalidOperationException(ex.Message);
             }
 
-            var producer = new ProducerBuilder<int?, string>(producerConfig).Build();
+            var producer = new ProducerBuilder<int, string>(producerConfig).Build();
             Thread[] dispatchers = new Thread[AppConfigs.EVENT_FILES.Length];
 
             _log.Info("Starting Dispatcher threads...");

@@ -8,9 +8,9 @@ namespace producer
         private static readonly ILog _log = LogManager.GetLogger("default");
         private readonly string _fileLocation;
         private readonly string _topicName;
-        private readonly IProducer<int?, string> _producer;
+        private readonly IProducer<int, string> _producer;
 
-        public Dispatcher(IProducer<int?, string> producer, string fileLocation, string topicName)
+        public Dispatcher(IProducer<int, string> producer, string fileLocation, string topicName)
         {
             _fileLocation = fileLocation;
             _topicName = topicName;
@@ -31,9 +31,9 @@ namespace producer
                     {
                         _producer.Produce(
                         _topicName,
-                        new Message<int?, string>
+                        new Message<int, string>
                         {
-                            Key = null,
+                            Key = 0,
                             Value = line,
                         });
                         counter++;
