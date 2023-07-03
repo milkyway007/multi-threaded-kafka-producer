@@ -10,14 +10,14 @@ namespace producer
         private readonly string _topicName;
         private readonly IProducer<int?, string> _producer;
 
-        public Dispatcher(string fileLocation, string topicName, IProducer<int?, string> producer)
+        public Dispatcher(IProducer<int?, string> producer, string fileLocation, string topicName)
         {
             _fileLocation = fileLocation;
             _topicName = topicName;
             _producer = producer;
         }
 
-        public async Task Run()
+        public void Run()
         {
             _log.Info($"Start Processing {_fileLocation}");
             int counter = 0;
@@ -29,7 +29,7 @@ namespace producer
                     var line = reader.ReadLine();
                     if (line != null)
                     {
-                        _ = await _producer.ProduceAsync(
+                        _producer.Produce(
                         _topicName,
                         new Message<int?, string>
                         {

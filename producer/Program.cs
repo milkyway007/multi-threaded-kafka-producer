@@ -1,1 +1,3 @@
-﻿
+﻿using producer;
+
+DispatcherDemo.Demo();

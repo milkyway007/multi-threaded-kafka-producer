@@ -12,4 +12,10 @@
     <PackageReference Include="log4net" Version="2.0.15" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="kafka.properties">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
